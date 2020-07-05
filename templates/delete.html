@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Delete Account{% endblock %}
+
+{% block link_style %}
+    <link href="{{url_for('static',filename='css/register.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block navbar_elements %}
+<li class="nav-item active">
+  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+</li>
+{% if not username %}
+<li class="nav-item">
+    <a class="nav-link" href="/login">Login</a>
+</li>
+{% else %}
+<li class="nav-item">
+    <a class="nav-link" href="/user">Profile</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="/logout">Logout</a>
+</li>
+{% endif %}
+{% endblock %}
+
+{% block body_container %}
+<div class="container-fluid">
+<main style="text-align: center;align-self: center;">
+    {% if not username %}
+    <h2>There is no user logged in! please go to login page to login first...</h2><hr>
+    <a href="/login"><button class="btn btn-primary">Login</button></a><br><br>
+    <a href="/register"><button class="btn btn-success">Register</button></a><br>
+    {%else%}
+</main>
+</div>
+    <form class="form-signin" action="#" method="POST" style="text-align: center;">
+    <h1 class="h3 mb-3 font-weight-normal">Delete Account?</h1>
+    <h5>Account</h5>
+    <p>username : {{username}}</p>
+    <p>email : {{email}}</p>
+    <input type="password" name="passwd" placeholder="Confirm Password" class="form-control">
+    <button class="btn btn-lg btn-danger btn-block" type="submit">Delete Account</button>
+  </form>
+  {% endif %}
+{% endblock %}

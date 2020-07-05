@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block link_style %}
+    <link href="{{url_for('static',filename='css/register.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block navbar_elements %}
+<li class="nav-item active">
+  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+</li>
+      <li class="nav-item">
+        <a class="nav-link" href="/user">User</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout" tabindex="-1">logout</a>
+      </li>
+{% endblock %}
+
+{% block body_container %}
+{% if email %}
+    <div class="container-fluid">
+    <main style="text-align: center;align-self: center;">
+        <h2>There is already a user registered with this email !</h2><hr>
+        <p>just use different email and try again...</p>
+        <a href="/register"><button class="btn btn-primary">Register</button></a>
+{% elif username %}
+        <h2>Hello {{username}}, it seems like you're trying to Create a Account!</h2><hr>
+        <p>To do so, just logout the current account...</p><br>
+        <a href="/logout"><button class="btn btn-success">Logout</button></a>
+    </main>
+</div>
+    {% else %}
+<form class="form-signin" action="#" method="POST">
+    <h1 class="h3 mb-3 font-weight-normal">Create New Account</h1>
+    <!-- <label for="inputname" class="sr-only">Enter Userame</label> -->
+    <input type="text" name="username" id="inputname" class="form-control" placeholder="Create Username" required autofocus>
+    <!-- <label for="inputemail" class="sr-only">Enter Email</label> -->
+    <input type="email" name="email" id="inputemail" class="form-control" placeholder="Enter E-mail" required >
+    <!-- <label for="inputpass" class="sr-only">Create Password(8 to 16 characters)</label> -->
+    <input type="password" name="passwd" id="inputpass" class="form-control" placeholder="Create Password (8 to 16 characters)" minlength="8" maxlength="16" required >
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+    <!-- <p class="mt-5 mb-3 text-muted">&copy; RedRanger00</p> -->
+</form>
+<div class="container" style="margin-right: auto;margin-left: auto;text-align: center; text-align: justify;margin: 0 auto;width: 30vw;background-color:silver;min-width: 280px;">
+<p class="text-muted container" style="font-size: clamp(15px,3vw,15px);">password must include:<br><s>1.atleast 1 lowercase character<br>2.atleast 1 uppercase character<br>3.atleast 1 digit</s><br>4.password lenth 8 to 16<br></p>
+</div>
+{% endif %}
+{% endblock %}

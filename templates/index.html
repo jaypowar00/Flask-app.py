@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Home Page{% endblock %}
+
+{% block link_style %}
+    <link href="{{url_for('static',filename='css/main.css')}}" rel="stylesheet">
+{% endblock %}
+
+{% block navbar_elements %}
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/user">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout" tabindex="-1">Logout</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/register">Register</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/delete">Delete Account</a>
+      </li>
+{% endblock %}
+
+{% block main_container %}
+  <main role="main" class="container">
+    <div class="starter-template">
+      <h1 style="font-size: 6vw;">{%if username%}Hey <span style="color: indianred; font:italic;">{{username}}</span>!<br>{%endif%}Welcome to Home Page </h1>
+      <p class="lead" style="font-size: 4vw;">See the nav bar every time ! It'll hellp you to redirect to dedicated pages...</p>
+      <br><br>
+      <p>This website usually uses the session feature!</p>
+      <p>The database manipulation features comming soon!</p>
+      <!-- <p class=" text-muted" style="position: fixed; bottom: 0; font-size: 90%;">&copy; RedRanger00</p> -->
+    </div>
+  </main><!-- /.container -->
+{% endblock %}
