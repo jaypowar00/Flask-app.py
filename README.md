@@ -1,10 +1,5 @@
 # Flask-app.py
 just trying flask ...
-after cloning, create two folders named templates and static.
-move all the .html files into templates.
-create a folder named css inside static folder.
-move all the .css files into that css folder.
-and done .
 
 requirements:
 flask
