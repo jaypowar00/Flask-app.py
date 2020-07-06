@@ -22,19 +22,19 @@
 {% endblock %}
 
 {% block body_container %}
-{% if email %}
-    <div class="container-fluid">
-    <main style="text-align: center;align-self: center;">
-        <h2>There is already a user registered with this email !</h2><hr>
-        <p>just use different email and try again...</p>
-        <a href="/register"><button class="btn btn-primary">Register</button></a>
-{% elif username %}
-        <h2>Hello {{username}}, it seems like you're trying to Create a Account!</h2><hr>
-        <p>To do so, just logout the current account...</p><br>
-        <a href="/logout"><button class="btn btn-success">Logout</button></a>
-    </main>
-</div>
-    {% else %}
+<div class="container-fluid">
+  <main style="text-align: center;align-self: center;">
+      {% if email %}
+      <h2>There is already a user registered with this email !</h2><hr>
+      <p>just use different email and try again...</p>
+      <a href="/register"><button class="btn btn-primary">Register</button></a>
+      {% elif username %}
+      <h2>Hello {{username}}, it seems like you're trying to Create a new Account!</h2><hr>
+      <p>To do so, just logout the current account...</p><br>
+      <a href="/logout"><button class="btn btn-success">Logout</button></a>
+      {%else%}
+  </main>
+  </div>
 <form class="form-signin" action="#" method="POST">
     <h1 class="h3 mb-3 font-weight-normal">Create New Account</h1>
     <!-- <label for="inputname" class="sr-only">Enter Userame</label> -->

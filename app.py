@@ -54,7 +54,8 @@ def register():
                     db.session.commit()
                     return redirect(url_for('login'))
         else:
-            return render_template('register.html')
+            username=session["username"]
+            return render_template('register.html',username=username)
     else:
         email = session["email"]
         return render_template('register.html',username=username)
